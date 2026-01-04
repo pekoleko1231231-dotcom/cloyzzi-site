@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>cloyzzi — Free Team</title>
+  <meta name="description" content="cloyzzi • владелец Free Team" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#070913;
+      --card:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.12);
+      --text:rgba(255,255,255,.95);
+      --muted:rgba(255,255,255,.68);
+      --shadow:0 25px 80px rgba(0,0,0,.6);
+      --r:24px;
+      --max:1100px;
+      --grad:linear-gradient(135deg,#7c5cff,#00e5ff);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(124,92,255,.35), transparent 55%),
+        radial-gradient(900px 600px at 80% 20%, rgba(0,229,255,.25), transparent 55%),
+        radial-gradient(900px 600px at 60% 90%, rgba(255,110,199,.22), transparent 60%),
+        var(--bg);
+      min-height:100vh;
+    }
+    a{color:inherit;text-decoration:none}
+
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(16px);
+      background:rgba(7,9,19,.6);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      max-width:var(--max);
+      margin:auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .logo{
+      width:38px;height:38px;border-radius:14px;
+      background:var(--grad);
+      box-shadow:0 0 40px rgba(124,92,255,.6);
+    }
+
+    .wrap{max-width:var(--max);margin:auto;padding:36px 18px 90px}
+
+    .hero{
+      display:flex;
+      gap:32px;
+      align-items:center;
+      flex-wrap:wrap;
+      animation:fadeUp .9s ease both;
+    }
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(25px)}
+      to{opacity:1;transform:none}
+    }
+
+    .avatar{
+      width:220px;
+      height:220px;
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      animation:float 6s ease-in-out infinite;
+      flex:0 0 auto;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    @keyframes float{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-10px)}
+    }
+
+    .hero-text{max-width:640px}
+    .badge{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.14);
+      margin-bottom:14px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background:#00e5ff;
+      box-shadow:0 0 0 6px rgba(0,229,255,.15);
+      animation:pulse 1.6s infinite;
+    }
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+
+    h1{
+      margin:10px 0;
+      font-size:clamp(34px,4.5vw,56px);
+      line-height:1.05;
+    }
+    .sub{color:var(--muted);font-size:18px;line-height:1.55;margin:0}
+
+    .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+    .btn{
+      padding:14px 18px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      font-weight:700;
+      transition:.25s;
+      box-shadow:0 15px 40px rgba(0,0,0,.35);
+      cursor:pointer;
+    }
+    .btn:hover{transform:translateY(-3px)}
+    .btn.primary{
+      background:var(--grad);
+      color:#041018;
+      border:none;
+      font-weight:900;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:18px;
+      margin-top:48px;
+    }
+    .card{
+      grid-column:span 4;
+      background:var(--card);
+      border:1px solid var(--stroke);
+      border-radius:var(--r);
+      padding:20px;
+      box-shadow:var(--shadow);
+      animation:fadeUp .8s ease both;
+    }
+    .card h3{margin:0 0 8px}
+    .card p{margin:0;color:var(--muted)}
+    .full{grid-column:span 12}
+
+    footer{margin-top:14px;font-size:13px;color:rgba(255,255,255,.5)}
+
+    @media(max-width:800px){
+      .card{grid-column:span 12}
+      .hero{justify-content:center;text-align:center}
+      .hero-text{text-align:center}
+      .cta{justify-content:center}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="logo"></div>
+      <div>cloyzzi</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="avatar">
+      <!-- Заменишь файл avatar.png на аву друга -->
+      <img src="avatar.png" alt="cloyzzi avatar">
+    </div>
+
+    <div class="hero-text">
+      <div class="badge"><span class="dot"></span> Владелец Free Team</div>
+
+      <h1>Я <span style="background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;">cloyzzi</span> 👋</h1>
+
+      <p class="sub">
+        Я — <b>владелец Free Team</b>.  
+        По вопросам сотрудничества, вступления и условий — пиши мне напрямую в Telegram.
+      </p>
+
+      <div class="cta">
+        <a class="btn primary" href="https://t.me/cloyzzi" target="_blank" rel="noreferrer">Написать в Telegram</a>
+        <button class="btn" onclick="copyNick()">Скопировать @cloyzzi</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid" id="how">
+    <div class="card">
+      <h3>1️⃣ Напиши cloyzzi</h3>
+      <p>Скажи, что хочешь вступить в Free Team или уточнить условия.</p>
+    </div>
+    <div class="card">
+      <h3>2️⃣ Получи инструкцию</h3>
+      <p>Я отвечу и дам дальнейшие шаги/доступы.</p>
+    </div>
+    <div class="card">
+      <h3>3️⃣ Вступай в Free Team</h3>
+      <p>
+        <a href="https://t.me/+dyh5UV7beHQ5M2Qy" target="_blank" rel="noreferrer"
+           class="btn" style="display:inline-block;margin-top:10px">
+          Перейти в группу
+        </a>
+      </p>
+    </div>
+
+    <div class="card full" id="contacts">
+      <h3>Контакты</h3>
+      <p>@cloyzzi</p>
+      <footer>© <span id="y"></span> • cloyzzi • Free Team</footer>
+    </div>
+  </section>
+</main>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+  function copyNick(){
+    navigator.clipboard.writeText("@cloyzzi");
+    alert("Ник @cloyzzi скопирован");
+  }
+</script>
+
+</body>
+</html>
